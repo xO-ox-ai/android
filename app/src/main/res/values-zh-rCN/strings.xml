@@ -1294,4 +1294,12 @@
     <plurals name="share_download_limit_description">
         <item quantity="other">剩余 %1$d 个下载</item>
     </plurals>
+    <string name="logs_record_debug">记录 debug 日志</string>
+    <string name="logs_record_debug_summary">在之后的日志中包含 debug 和 verbose 级别的消息</string>
+    <string name="logs_export_to_downloads">提取日志</string>
+    <string name="logs_export_to_downloads_summary">将应用日志保存到 Download/Nextcloud</string>
+    <string name="logs_export_to_downloads_success">日志已保存到 Download/Nextcloud</string>
+    <string name="logs_export_to_downloads_empty">没有可提取的日志。请重现问题后再试。</string>
+    <string name="logs_export_to_downloads_failed">无法保存日志。请检查可用存储空间后重试。</string>
+    <string name="logs_export_storage_permission_required">需要存储权限才能将日志保存到 Download/Nextcloud。</string>
     </resources>
