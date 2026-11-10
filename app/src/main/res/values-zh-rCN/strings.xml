@@ -1294,4 +1294,12 @@
     <plurals name="share_download_limit_description">
         <item quantity="other">剩余 %1$d 个下载</item>
     </plurals>
+    <string name="e2ee_certificate_invalid_server_key">无法验证加密证书：服务器的签名公钥无效或与证书不兼容。请联系管理员检查加密配置。</string>
+    <string name="e2ee_certificate_invalid_format">无法验证加密证书：服务器返回的证书格式有误。请重试；如果问题持续，请联系管理员。</string>
+    <string name="e2ee_certificate_expired">你的加密证书已过期。请检查设备的日期和时间；如果时间正确，请联系管理员，在保留现有加密密钥的情况下续期证书。</string>
+    <string name="e2ee_certificate_not_yet_valid">你的加密证书尚未生效。请检查设备的日期和时间；如果时间正确，请联系管理员检查证书的有效期。</string>
+    <string name="e2ee_certificate_invalid_signature">你的加密证书与服务器的签名公钥不匹配。请重试；如果问题持续，请联系管理员核对证书和服务器签名公钥。</string>
+    <string name="e2ee_certificate_unsupported_algorithm">设备不支持此加密证书的签名算法，无法验证证书。请更新应用和安卓系统，或联系管理员。</string>
+    <string name="e2ee_certificate_verification_failed">验证加密证书时发生了加密运算错误。请重试；如果问题持续，请联系管理员。</string>
+    <string name="e2ee_local_keys_invalid">无法验证此设备保存的加密密钥。请先确认已妥善保存 12 个词的助记词，再移除本地加密设置并重新设置。</string>
     </resources>
