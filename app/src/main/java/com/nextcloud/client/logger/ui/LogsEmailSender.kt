@@ -29,8 +29,13 @@ import com.owncloud.android.utils.FileExportUtils
 import java.io.File
 import java.security.SecureRandom
 import java.util.TimeZone
+import javax.inject.Inject
 
-class LogsEmailSender(private val context: Context, private val clock: Clock, private val runner: AsyncRunner) {
+class LogsEmailSender @Inject constructor(
+    private val context: Context,
+    private val clock: Clock,
+    private val runner: AsyncRunner
+) {
 
     private companion object {
         const val LOGS_MIME_TYPE = "text/plain"
@@ -89,7 +94,7 @@ class LogsEmailSender(private val context: Context, private val clock: Clock, pr
     }
 
     private fun export(file: File) {
-        FileExportUtils().exportFile(
+        FileExportUtils("Nextcloud").exportFile(
             "Nextcloud Android Files Logs",
             "text/plain",
             context.contentResolver,

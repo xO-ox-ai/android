@@ -23,7 +23,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
 
-class FileExportUtils {
+class FileExportUtils(private val subdirectory: String = "") {
     @Throws(IllegalStateException::class)
     fun exportFile(fileName: String, mimeType: String, contentResolver: ContentResolver, ocFile: OCFile?, file: File?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -56,7 +56,7 @@ class FileExportUtils {
         val cv = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
             put(MediaStore.MediaColumns.MIME_TYPE, mimeType)
-            put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)
+            put(MediaStore.MediaColumns.RELATIVE_PATH, "${Environment.DIRECTORY_DOWNLOADS}/$subdirectory")
         }
 
         var uri = contentResolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, cv)
@@ -87,8 +87,13 @@ class FileExportUtils {
         file: File?
     ) {
         try {
-            var target = File(
+            val directory = File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                subdirectory
+            )
+            directory.mkdirs()
+            var target = File(
+                directory,
                 fileName
             )
 
@@ -97,7 +102,7 @@ class FileExportUtils {
                 do {
                     val name = generateNewName(fileName, count)
                     target = File(
-                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                        directory,
                         name
                     )
 
